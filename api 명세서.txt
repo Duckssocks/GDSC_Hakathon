@@ -1,0 +1,83 @@
+[ API 명세서 ]
+
+- 기본 정보
+Base URL: http://localhost/api/regiondata
+Content-Type: application/json
+
+---------------------------------------
+
+1. 모든 지역 데이터 조회
+Endpoint: /api/regiondata
+Method: GET
+Description: 데이터베이스에 있는 모든 지역 데이터를 조회
+
+Response:
+Status Code: 200 OK
+Body: RegionData 객체 배열
+
+---------------------------------------
+
+2. 특정 지역 데이터 조회
+Endpoint: /api/regiondata/search
+Method: GET
+Description: 주와 도시를 기준으로 특정 지역 데이터를 조회
+
+Query Parameters:
+province (String) - 주 이름
+city (String) - 도시 이름
+
+Response:
+Status Code: 200 OK
+Body: RegionData 객체
+
+---------------------------------------
+
+3. ID로 특정 지역 데이터 조회
+Endpoint: /api/regiondata/{id}
+Method: GET
+Description: ID를 기준으로 특정 지역 데이터를 조회
+Path Parameters:
+id (Long) - 지역 데이터의 ID
+
+Response:
+Status Code: 200 OK
+Body: RegionData 객체
+
+---------------------------------------
+
+4. 새로운 지역 데이터 생성
+Endpoint: /api/regiondata
+Method: POST
+Description: 새로운 지역 데이터를 생성합니다.
+
+Request Body:
+RegionData 객체
+
+Response:
+Status Code: 201 Created
+Body: 생성된 RegionData 객체
+
+---------------------------------------
+
+5. 특정 지역 데이터 수정
+Endpoint: /api/regiondata/{id}
+Method: PUT
+Description: ID를 기준으로 특정 지역 데이터를 수정합니다.
+Path Parameters:
+id (Long) - 지역 데이터의 ID
+Request Body:
+수정할 RegionData 객체
+Response:
+Status Code: 200 OK
+Body: 수정된 RegionData 객체
+
+---------------------------------------
+
+6. 특정 지역 데이터 삭제
+Endpoint: /api/regiondata/{id}
+Method: DELETE
+Description: ID를 기준으로 특정 지역 데이터를 삭제합니다.
+Path Parameters:
+id (Long) - 지역 데이터의 ID
+Response:
+Status Code: 204 No Content
